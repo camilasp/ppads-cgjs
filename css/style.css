@@ -1,0 +1,318 @@
+
+/* variáveis */
+:root {
+    --pageBackground: #000000;
+	--bottomBackground: #554848;
+	--topBackground:#695A5A;
+    --fontColor: #FFFFFF;
+    --shadows: rgba(196, 196, 196, 0.2);
+	--logoColor: #F27405;
+	--buttonColor: #FF9F0A;
+}
+
+/* fontes */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&family=Nunito+Sans:wght@200;400;600&family=Roboto:wght@100;300&display=swap');
+
+/* reset */
+
+html,
+body {
+ 
+    margin: 0;
+	box-sizing: border-box;
+	background-color: var(--pageBackground);
+	
+}
+
+/* estilos básicos */
+
+* {
+  font-family: "Noto Sans", sans-serif;
+  color:var(--fontColor);
+  font-size: 12pt;	
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+
+}
+
+.main-menu{
+	display: none;
+}
+.wrapper .top_nav{
+
+  width: 100%;
+  height: 65px;
+  background:#695A5A;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+
+.wrapper .top_nav .left #logo p span{
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  font-size: 32pt;
+  color: var(--logoColor);
+}
+
+
+.wrapper .top_nav .right ul{
+  display: flex;
+}
+
+
+
+.wrapper .top_nav .right ul li:last-child{
+  
+  margin-right: 0;
+
+}
+
+
+.wrapper .top_nav .right ul li a{
+  display: block;
+  padding: 0px 10px;
+
+}
+
+.right ul li:last-child a i{
+	size: 30px;
+  
+}
+
+.wrapper .bottom_nav{
+  width: 100%;
+  background: var(--bottomBackground);
+  height: 45px;
+  padding: 0 50px;
+}
+
+.wrapper .bottom_nav ul{
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .bottom_nav ul li a{
+  
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.material-icons{
+	color: #CAC5C5;
+	font-size: 30px;
+	text-align: center;
+	
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 16px 8px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: down;
+  position: left;
+  color: black;
+  padding: 20px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+h1{
+	
+	font-weight:600;
+	font-size: 24pt;
+	text-align: center;
+	margin: 20px;
+	
+}
+
+h2{
+	
+	font-weight:700;
+	font-size: 22pt;
+	
+	
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+}
+	
+}
+.featured{
+	margin: 10px;
+    padding: 20px;
+
+}
+
+.mylist{
+	margin: 10px;
+    padding: 20px;
+
+}
+.session-title{
+	margin: 10px;
+    padding: 20px;
+
+}
+
+
+img{
+    width: 25%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+		
+}
+
+.titulos{
+
+	font-weight:100;
+	font-size: 12pt;
+	display: block;
+	align-items:center;
+
+	
+}
+
+.filmes{
+	display: block;
+	
+}
+
+.list{
+	display: block;
+}
+
+.float-child {
+    
+	flex-direction: column;
+	justify-content: center;
+    vertical-align: top;
+	text-align: center;
+	padding: 20px;
+ 
+}  
+
+.form-group{
+    margin: 40px;
+	display:block;
+	width: 80%;
+    padding: 20px;
+	height:70%;
+	justify-content: center;
+
+	
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 7px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  color: #000000;
+	
+}
+
+input[type=text]:focus {
+  border: 2px solid #695A5A;
+}
+
+label{
+	font-size:10pt;
+	font-weight: 100;
+	
+
+}
+
+.botao {
+  background-color: var(--buttonColor);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 20px;
+  width:100%;
+}
+
+.botao:hover {
+  background-color: var(--logoColor);
+}
+/* web e demais tamanhos */
+@media only screen and (min-width : 920px) {
+ 
+*{
+    font-size: 14pt;
+}
+    
+img{
+    width: 50%;
+	height: 50%;	
+}
+
+.float-child {
+    width: 25%;
+    float: right;   
+} 
+
+.container{
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	height:80%;
+	
+}
+.menu-item{
+
+}
+
+.main-menu{
+    width: 25%;
+	height:80%;
+	margin: 10px 10px;
+	padding: 50px 30px;
+}	
+
+.form-group{
+    width: 65%;
+	height:80%;
+	float:right;
+	margin: 10px;
+}	
+		 
