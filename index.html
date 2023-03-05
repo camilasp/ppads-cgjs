@@ -23,37 +23,45 @@
       </div>
     </div>
     <div class="bottom_nav">
-		<ul>
-			<div class="dropdown">
-				<li><a href="#"><i class="dropbtn material-icons" style="font-size:36px">menu</i></a></li>
-					<div class="dropdown-content">
-						<a href="index.html">Home</a>
-						<a href="login.html">Login</a>
-						<a href="register.html">Register</a>
-						<a href="#">My List</a>
-					</div>
-			</div> 
+		<div class="dropdown">
+			<a href="#"><i class="dropbtn material-icons" style="font-size:36px">menu</i></a>
+				<div class="dropdown-content">
+					<a href="index.html">Home</a>
+					<a href="login.html">Login</a>
+					<a href="register.html">Register</a>
+					<a href="#">My List</a>
+				</div>
+		</div> 
 			
-			<li><a href="#">Search</a></li>
-			<li><a href="#">Genre</a></li>
-			<li><a href="#">Title</a></li>
-			<li><a href="#"><i class="material-icons">account_circle</i></a></li>
-        
-		</ul>
+		<div class="search">
+			<ul>
+				<li><input type="text"
+					placeholder=" Search Movies"
+					name="search"></li>
+				<li>
+					<a href="#"><i class="material-icons">search</i></a>
+				</li>
+			
+				<li><a href="#"><i class="material-icons last-icon">account_circle</i></a></li>
+		    </ul>
+		</div>
   </div>
 
   <section class="container main-menu">
-	<h1>Recommendation Tool</h1>
+	<h1 id="recommendation-tool">Recommendation Tool</h1>
+	<p id="select-genre">Select genre</p>
 	<ul>
-		<select name="Genre">
-			<option value="Comédia">Comédia</option>
-  			<option value="Terror">Terror</option>
-  			<option value="Animação">Animação</option>
-  			<option value="Ação">Ação</option>
-			<option value="Ficção">Ficção</option>
-			<option value="Suspense">Suspense</option>
-			<option value="Drama">Drama</option>
+		<select name="Genre" label="Genre">
+			
+			<option value="Action">Action</option>
+  			<option value="Adventure">Adventure</option>
+  			<option value="Animation">Animation</option>
+			<option value="Comedy">Comedy</option>
+  			<option value="Drama">Drama</option> 
+			<option value="Horror">Horror</option>
 			<option value="Musical">Musical</option>
+			<option value="Thriller">Thriller</option>
+			<option value="Sci-Fi">Sci-Fi</option>
 		</select>
 		<h3 id="titulo-suprise" href="#">Surprise me!</h3><br>
 		<li id="menu"><a class="menu-item" href="index.html">Home</a></li><br>
@@ -94,10 +102,11 @@
 					<a class= "titulos">Trainspotting</a>
 				</div>
 				<div class="float-child">
-					<img src="img/silent_place.jpg"/>
-					<a class= "titulos">A Silent Place</a>
+					<img src="img/a_quiet_place.jpg"/>
+					<a class= "titulos">A Quiet Place</a>
 				</div>
-			</div>			
+			</div>	
+		    <p class="see-more"><a href="lista.html">more</a></p>
 		</section>	
 </body>
 </html>

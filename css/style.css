@@ -4,7 +4,7 @@
     --pageBackground: #000000;
 	--bottomBackground: #554848;
 	--topBackground:#695A5A;
-    --fontColor: #FFFFFF;
+    --fontColor: #F2F7F7;
     --shadows: rgba(196, 196, 196, 0.2);
 	--logoColor: #F27405;
 	--buttonColor: #FF9F0A;
@@ -70,7 +70,6 @@ body {
 }
 
 
-
 .wrapper .top_nav .right ul li:last-child{
   
   margin-right: 0;
@@ -94,13 +93,17 @@ body {
   background: var(--bottomBackground);
   height: 45px;
   padding: 0 50px;
+  display: flex;
+  justify-content:space-between;  
+  align-items: center;
+  
 }
 
 .wrapper .bottom_nav ul{
   width: 100%;
-  height: 45px;
+  height: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;  
   align-items: center;
 }
 
@@ -109,12 +112,19 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 12px;
+  display: block;
+  
+}
+.wrapper .bottom_nav ul li {
+  margin-left: 30px;
+ 
 }
 
 .material-icons{
 	color: #CAC5C5;
 	font-size: 30px;
 	text-align: center;
+	
 	
 }
 
@@ -139,7 +149,7 @@ body {
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #D9D9D9;
 }
 
 .dropdown:hover .dropdown-content {
@@ -155,19 +165,12 @@ h1{
 	
 }
 
-h2{
-	
-	font-weight:700;
+h2{	
+	font-weight:500;
 	font-size: 22pt;
 	
-	
 }
 
-#titulo-suprise{
-  text-align: center;
-  color: #F27405;
-
-}
 
 .flex-container{
   display: flex;
@@ -176,41 +179,74 @@ h2{
 }
 	
 .featured{
-	margin: 10px;
+  margin: 10px;
   padding: 20px;
-  margin-top: -560px;
+
 }
 
 .mylist{
-	margin: 10px;
+  margin: 10px;
   padding: 20px;
 
 }
 .session-title{
-	margin: 10px;
+  margin: 10px;
   padding: 20px;
 
 }
 
 
 img{
-  width: 25%;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+   width: 25%;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
 		
 }
 
 .titulos{
 
-	font-weight:100;
-	font-size: 12pt;
-	display: block;
-	align-items:center;
+  font-weight:100;
+  font-size: 12pt;
+  display: block;
+  align-items:center;
 
 	
 }
 
+h3{
+
+  font-weight:400;
+  font-size: 20pt;
+  display: block;
+  text-align: center;
+  padding: 40px;
+}
+
+.banner{
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+   flex-direction: column;
+   justify-content: center;
+   vertical-align: top;
+   text-align: center;
+   padding: 20px;
+}
+
+.info p{
+	display:block;
+	font-weight: 100;
+    font-size: 11pt;
+	flex-direction: column;
+	justify-content: center;
+    vertical-align: top;
+	text-align: center;
+	color:#D8D8D8;
+	padding: 20px;
+
+}
 .filmes{
 	display: block;
 	
@@ -229,6 +265,17 @@ img{
 	padding: 20px;
  
 }  
+
+.see-more{
+	font-weight:100;
+	font-size: 6pt;
+	text-align: right;
+	margin: 25px;
+	padding-right: 40px;
+	
+	
+}
+
 
 .form-group{
     margin: 40px;
@@ -279,12 +326,49 @@ label{
 
 .botao:hover {
   background-color: var(--logoColor);
+ 
 }
+
+.bottom_nav .search-container {
+  float: right;
+}
+
+.bottom_nav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.bottom_nav .search-container button {
+  float: right;
+  padding: 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+.bottom_nav .search-container button:hover {
+  background: #ccc;
+}
+
+
 /* web e demais tamanhos */
 @media only screen and (min-width : 920px) {
  
 *{
     font-size: 14pt;
+}
+
+.flex-container{
+	float: right;
+	width: 70%;
+	
+	
 }
     
 img{
@@ -293,45 +377,108 @@ img{
 }
 
 .float-child {
-    width: 25%;
-    float: right;   
+    width: 33%;
+	float: left;
 } 
 
 .container{
 	display: flex;
 	flex-direction: column;
-	width: 50%;
+	width: 30%;
 	height:80%;
 	
+}
+.featured{
+  margin: 10px;
+  padding: 20px;
+
 }
 
 .main-menu{
     width: 25%;
 	height:80%;
-	margin: 10px 10px;
+	margin: 20px 20px;
 	padding: 50px 30px;
+	float:left;
+	text-align: center;
+	
 }	
 
 .form-group{
-    width: 65%;
+    width: 60%;
 	height:80%;
 	float:right;
 	margin: 10px;
+	margin-right:50px;
 }	
 
 #menu{
   text-align: center;
 }
 
+#recommendation-tool{
+	font-size: 18pt;
+	
+}
 select {
   margin-right: 30px;
-  width: 317px;
-  padding: 8px 20px;
+  width: 220px;
+  padding: 8px 10px;
   margin: 2px 0;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 5px;
   box-sizing: border-box;
+
+  
 }
 
+select option{
+	color: black;
 }
-		 
+
+
+#titulo-suprise{
+  text-align: center;
+  color: var(--buttonColor);
+  padding: 8px 10px;
+  margin:10px;
+  font-size: 12pt;
+
+}
+#select-genre{
+  color: #CAC5C5;
+}
+.dropdown{
+	display: none;
+}
+
+.search{
+
+  margin-left: 900px;		
+	
+}
+
+h3{
+   font-weight:500;
+   font-size: 24pt;
+   display: block;
+   text-align:left;
+   padding: 40px;
+}
+.banner{
+	width: 45%;
+	float: left;
+	
+}	
+
+.info p{
+	
+	width: 45%;
+	float: right;
+	margin-right:30px;
+	font-size: 12pt;
+	font-weight:200;
+
+	
+}	
+
