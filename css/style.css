@@ -41,7 +41,9 @@ body {
 .main-menu{
 	display: none;
 }
-
+.menu-film{
+	display:none;
+}
 .wrapper .top_nav{
 
   width: 100%;
@@ -177,6 +179,13 @@ h2{
   flex-direction: column;
   top: 0;
 }
+
+.group{
+  display: flex;
+  flex-direction: column;
+  top: 0;
+}
+	
 	
 .featured{
   margin: 10px;
@@ -220,31 +229,45 @@ h3{
   font-size: 20pt;
   display: block;
   text-align: center;
-  padding: 40px;
+  padding: 35px;
 }
 
 .banner{
    width: 50%;
    margin-left: auto;
    margin-right: auto;
-   display: block;
-   flex-direction: column;
+   display:block;
    justify-content: center;
    vertical-align: top;
    text-align: center;
-   padding: 20px;
+   padding: 15px;
+}
+
+.add-remove{
+	
+	font-weight:100;
+    font-size: 9pt;
+	display:block;
+    text-align: center;
+	cursor: pointer;
+	
+	
+}
+.add-remove:hover {
+  color: var(--logoColor);
+ 
 }
 
 .info p{
-	display:block;
+	display:flex;
 	font-weight: 100;
-    font-size: 11pt;
+    font-size: 10pt;
 	flex-direction: column;
 	justify-content: center;
     vertical-align: top;
 	text-align: center;
 	color:#D8D8D8;
-	padding: 20px;
+	padding: 15px;
 
 }
 .filmes{
@@ -367,9 +390,9 @@ label{
 .flex-container{
 	float: right;
 	width: 70%;
-	
-	
+
 }
+
     
 img{
     width: 50%;
@@ -443,8 +466,15 @@ select option{
   padding: 8px 10px;
   margin:10px;
   font-size: 12pt;
+  cursor: pointer;
 
 }
+#titulo-suprise:hover {
+  color: var(--logoColor);
+ 
+}
+
+
 #select-genre{
   color: #CAC5C5;
 }
@@ -458,27 +488,54 @@ select option{
 	
 }
 
-h3{
+.title{
    font-weight:500;
-   font-size: 24pt;
-   display: block;
-   text-align:left;
-   padding: 40px;
+   font-size: 28pt;
+   text-align:center-left;
+   padding-top: 30px;
+
+
 }
-.banner{
-	width: 45%;
-	float: left;
-	
-}	
 
 .info p{
 	
-	width: 45%;
-	float: right;
-	margin-right:30px;
 	font-size: 12pt;
-	font-weight:200;
+	font-weight:100;
+	padding: 0;
+	margin:0;
+	text-align: justify;
 
+}	
+.info{
+	padding-top:30px;
+	margin-right:50px;
+	width:30%;	
+	float: right;
 	
+}
+
+.group{
+   float:left;
+   width: 40%;
+   padding:0;
+   margin: 0;
+	
+}
+.group img .banner{
+	margin: 0;
+	width:60%;
+	align: center;
+	padding: 0;
+}
+.menu-film{
+    width: 20%;
+	height:80%;
+	margin: 30px;
+	padding-top:40px;
+	float:left;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+		
 }	
 

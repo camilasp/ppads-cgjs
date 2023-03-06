@@ -4,28 +4,27 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>
 				
 	</head>
 <body>
 
-<div class="wrapper">
+	<div class="wrapper">
     
-    <div class="top_nav">
-        <div class="left">
-          <div id="logo"><p><span>TipFlix</span></p></div>
-        </div> 
-      <div class="right">
-        <ul>
-          <li><a href="#">Reccomendation Tool</a></li>
+		<div class="top_nav">
+			<div class="left">
+			<div id="logo"><p><span>TipFlix</span></p></div>
+			</div> 
+		<div class="right">
+			<ul>
+			<li><a href="#">Reccomendation Tool</a></li>
 
-        </ul>
-      </div>
-    </div>
-    <div class="bottom_nav">
-		<ul>
+			</ul>
+		</div>
+		</div>
+		<div class="bottom_nav">
 			<div class="dropdown">
-				<li><a href="#"><i class="dropbtn material-icons" style="font-size:36px">menu</i></a></li>
+				<a href="#"><i class="dropbtn material-icons" style="font-size:36px">menu</i></a>
 					<div class="dropdown-content">
 						<a href="index.html">Home</a>
 						<a href="login.html">Login</a>
@@ -34,34 +33,69 @@
 					</div>
 			</div> 
 			
-			<li><a href="#">Search</a></li>
-			<li><a href="#">Genre</a></li>
-			<li><a href="#">Title</a></li>
-			<li><a href="#"><i class="material-icons">account_circle</i></a></li>
-        
-		</ul>
-  </div>
+			<div class="search">
+				<ul>
+					<li><input type="text"
+					placeholder=" Search Movies"
+					name="search"></li>
+					<li>
+						<a href="#"><i class="material-icons">search</i></a>
+					</li>
+			
+					<li><a href="#"><i class="material-icons last-icon">account_circle</i></a></li>
+				</ul>
+			</div>
+	</div>
 
-  <section class="container main-menu">
-	<h1>Recommendation Tool</h1>
-	<ul>
-		<select name="Genre">
-			<option value="Comédia">Comédia</option>
-  			<option value="Terror">Terror</option>
-  			<option value="Animação">Animação</option>
-  			<option value="Ação">Ação</option>
-			<option value="Ficção">Ficção</option>
-			<option value="Suspense">Suspense</option>
-			<option value="Drama">Drama</option>
-			<option value="Musical">Musical</option>
-		</select>
+	<section class="menu-film">
+		<h1 id="recommendation-tool">Recommendation Tool</h1>
+		<p id="select-genre">Select genre</p>
+		<ul>
+			<select name="Genre" label="Genre">
+			
+				<option value="Action">Action</option>
+				<option value="Adventure">Adventure</option>
+				<option value="Animation">Animation</option>
+				<option value="Comedy">Comedy</option>
+				<option value="Drama">Drama</option> 
+				<option value="Horror">Horror</option>
+				<option value="Musical">Musical</option>
+				<option value="Thriller">Thriller</option>
+				<option value="Sci-Fi">Sci-Fi</option>
+			</select>
+			<h3 id="titulo-suprise" href="#">Surprise me!</h3><br>
+			<li id="menu"><a class="menu-item" href="index.html">Home</a></li><br>
+			<li id="menu"><a class="menu-item" href="register.html">Register</a></li><br>
+			<li id="menu"><a class="menu-item" href="login.html">Login</a></li><br>
+			<li id="menu"><a class="menu-item" href="#">My List</a></li>
+		</ul>    
+	</section>
+  
+  
+	<section>
+	    <h3 class= "title">A Quiet Place</h3>
+	
+		<div class="group">
+			<img class="banner" src="img/a_quiet_place.jpg"/>
+			<span class="add-remove" data-values=" + add to list, - remove from list">+ add to list</span>
+		</div>	
+		<div class="info">
+			<p>The story of the young Abbott family is told starting on day
+			eighty-nine of their ordeal. 
+			Unaware if anyone else on Earth is still alive besides them,
+			they have to remain as silent as possible under most circumstances,
+			which means no speaking, to evade deadly and seemingly 
+			indestructible armored creatures which track their targets solely
+			by sound and which have led to the Abbotts' solitary existence.
+			This existence is made all the more difficult for eldest offspring
+			Regan in being deaf and thus unable to gauge the issue of sound,
+			which is why father, Lee, is constantly trying to devise ways to
+			upgrade her cochlear implant if only for her survival.
+			
+			</p>
+		</div>
 		
-		<h3 id="titulo-suprise" href="#">Surprise me!</h3><br>
-		<li id="menu"><a class="menu-item" href="index.html">Home</a></li><br>
-		<li id="menu"><a class="menu-item" href="login.html">Login</a></li><br>
-		<li id="menu"><a class="menu-item" href="#">My List</a></li>
-	</ul>    
-  </section>
-		
-</body>
+	 
+   </section>
+ </body>
 </html>
