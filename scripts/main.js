@@ -1,3 +1,5 @@
+
+
 document.addEventListener( "click", function toggleWords ( event ) {
     // A few variables to help us track important values/references
     var target = event.target, values = [], placed;
