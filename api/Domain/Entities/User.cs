@@ -15,6 +15,6 @@ namespace Domain.Entities
         [Required]
         public string? Password { get; set; }
 
-        //public List<Movie> MovieCollection { get; set; }
+        public ICollection<MovieReference> MovieReferences { get; set; }
     }
 }
