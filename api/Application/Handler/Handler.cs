@@ -23,7 +23,7 @@ namespace Application.Handler
         {
             try
             {
-                if (await _uof.UserRepository.HasUserWithEmailAsync(userDTO.Email))
+                if (!await _uof.UserRepository.HasUserWithEmailAsync(userDTO.Email))
                 {
                     var user = _mapper.Map<User>(userDTO);
                     _uof.UserRepository.Add(user);
@@ -68,23 +68,36 @@ namespace Application.Handler
 
                 if (user is not null)
                 {
-                    var movieRef = user.MovieReferences.FirstOrDefault(mr => mr.MovieId == updateMovieListDTO.MovieId);
-
-                    if (movieRef != null && !updateMovieListDTO.Favorite)
+                    if (user.MovieReferences is not null)
                     {
-                        user.MovieReferences.Remove(movieRef);
+                        MovieReference? movieRef = user.MovieReferences.FirstOrDefault(mr => mr.MovieId == updateMovieListDTO.MovieId);
+
+                        if (movieRef is not null && !updateMovieListDTO.Favorite)
+                        {
+                            user.MovieReferences.Remove(movieRef);
+                            //_uof.MovieReferenceRepository.Delete(movieRef);
+                        }
+                        else if (movieRef is null && updateMovieListDTO.Favorite)
+                        {
+                            user.MovieReferences.Add(movieRef);
+                            //_uof.MovieReferenceRepository.Add(new MovieReference { Id = Guid.NewGuid(), UserId = user.Id, MovieId = updateMovieListDTO.MovieId });
+                        }
                     }
                     else if (updateMovieListDTO.Favorite)
                     {
-                        if (movieRef == null)
+                        user.MovieReferences = new List<MovieReference>()
                         {
-                            movieRef = new MovieReference { Id = Guid.NewGuid(), UserId = user.Id };
-                            user.MovieReferences.Add(movieRef);
-                        }
-
-                        movieRef.MovieId = updateMovieListDTO.MovieId;
+                            new MovieReference
+                            {
+                                Id = Guid.NewGuid(),
+                                UserId = user.Id,
+                                MovieId = updateMovieListDTO.MovieId
+                            }
+                        };
+                        //_uof.MovieReferenceRepository.Add(new MovieReference { Id = Guid.NewGuid(), UserId = user.Id, MovieId = updateMovieListDTO.MovieId });
                     }
 
+                    _uof.UserRepository.UpdateUserMovieListAsync(user);
                     await _uof.Commit();
                 }
             }
@@ -134,9 +147,15 @@ namespace Application.Handler
                 {
                     var user = await _uof.UserRepository.GetPredicateAsync(user => user.Id == guid);
 
-                    if (user?.MovieReferences.Any(movie => movie.MovieId == id) == true)
+                    if (user.MovieReferences is not null)
                     {
-                        fav = true;
+                        if (user.MovieReferences.Count > 0)
+                        {
+                            if (user?.MovieReferences.Any(movie => movie.MovieId == id) == true)
+                            {
+                                fav = true;
+                            }
+                        }
                     }
                 }
 
