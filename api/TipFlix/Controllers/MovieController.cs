@@ -20,7 +20,7 @@ namespace TipFlix.Controllers
         {
             try
             {
-                var moviesInfo = _handler.GetPopularMoviesAsync();
+                var moviesInfo = await _handler.GetPopularMoviesAsync();
                 return Ok(moviesInfo);
             }
             catch (Exception ex)
