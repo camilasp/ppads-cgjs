@@ -39,5 +39,17 @@ namespace Infrastructure.Persistence.Repositories
                 return null;
             }
         }
+
+        public void UpdateUserMovieListAsync(User user)
+        {
+            try
+            {
+                _context.Update<User>(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
