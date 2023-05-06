@@ -17,6 +17,12 @@ namespace Infrastructure.Persistence.Context
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<MovieReference>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.MovieReferences)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
