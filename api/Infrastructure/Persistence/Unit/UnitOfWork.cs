@@ -8,6 +8,7 @@ namespace Infrastructure.Persistence.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private UserRepository _userRepository;
+        private MovieReferenceRepository _movieReferenceRepository;
 
         public AppDbContext _context;
 
@@ -21,6 +22,14 @@ namespace Infrastructure.Persistence.UnitOfWork
             get
             {
                 return _userRepository = _userRepository ?? new UserRepository(_context);
+            }
+        }
+
+        public IMovieReferenceRepository MovieReferenceRepository
+        {
+            get
+            {
+                return _movieReferenceRepository = _movieReferenceRepository ?? new MovieReferenceRepository(_context);
             }
         }
 
