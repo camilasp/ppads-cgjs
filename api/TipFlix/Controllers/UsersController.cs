@@ -1,7 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities.DTO;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace TipFlix.Controllers
 {
@@ -14,6 +13,20 @@ namespace TipFlix.Controllers
         public UsersController(IHandler handler)
         {
             _handler = handler;
+        }
+
+        [HttpGet("Get")]
+        public async Task<ActionResult<UserDTO>> LoginAsync([FromQuery] Guid guid)
+        {
+            try
+            {
+                var userDto = await _handler.GetUserByIdAsync(guid);
+                return userDto is not null ? (ActionResult<UserDTO>)Ok(userDto) : (ActionResult<UserDTO>)NotFound("Usuário não cadastrado.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro: {ex.Message}");
+            }
         }
 
         [HttpGet("Login")]

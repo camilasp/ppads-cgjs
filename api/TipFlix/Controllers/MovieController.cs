@@ -42,5 +42,19 @@ namespace TipFlix.Controllers
                 return BadRequest($"Erro: {ex.Message}");
             }
         }
+
+        [HttpGet("RandomMovieInfo")]
+        public async Task<ActionResult<MovieFavDTO>> Get([FromQuery] int genre)
+        {
+            try
+            {
+                var movie = await _handler.RandomMovieById(genre);
+                return Ok(movie);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro: {ex.Message}");
+            }
+        }
     }
 }
