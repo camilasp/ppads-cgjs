@@ -6,6 +6,5 @@ namespace Application.Interfaces.Repositories
     {
         Task<User> CheckUserCredentialsAsync(string email, string password);
         Task<bool> HasUserWithEmailAsync(string email);
-        void UpdateUserMovieListAsync(User user);
     }
 }
