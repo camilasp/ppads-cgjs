@@ -26,7 +26,7 @@ namespace Infrastructure.Services
 
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            var result = await _movieRequest.FindByIdAsync(id);
+            var result = await _movieRequest.FindByIdAsync(id, "pt-BR");
             return result.Item;
         }
     }
