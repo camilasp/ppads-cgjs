@@ -26,12 +26,12 @@ namespace Infrastructure.Persistence.Repositories
 
         public IQueryable<T> Get()
         {
-            return _context.Set<T>().AsNoTracking();
+            return _context.Set<T>();
         }
 
-        public async Task<T> GetPredicateAsync(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T> GetPredicateAsync(Expression<Func<T, bool>> predicate)
         {
-            return await _context.Set<T>().AsNoTracking().SingleOrDefaultAsync(predicate);
+            return await _context.Set<T>().SingleOrDefaultAsync(predicate);
         }
 
         public void Update(T entity)

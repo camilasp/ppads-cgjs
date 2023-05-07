@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Infrastructure.Persistence.Repositories
 {
@@ -14,6 +15,7 @@ namespace Infrastructure.Persistence.Repositories
             try
             {
                 var user = await Get()
+                    .Include(x => x.MovieReferences)
                     .FirstOrDefaultAsync(user => user.Email == email);
 
                 return user != null;
@@ -29,6 +31,7 @@ namespace Infrastructure.Persistence.Repositories
             try
             {
                 var user = await Get()
+                    .Include(x => x.MovieReferences)
                     .FirstOrDefaultAsync(user => 
                     user.Email == email && user.Password == password);
 
@@ -40,16 +43,11 @@ namespace Infrastructure.Persistence.Repositories
             }
         }
 
-        public void UpdateUserMovieListAsync(User user)
+        public override async Task<User> GetPredicateAsync(Expression<Func<User, bool>> predicate)
         {
-            try
-            {
-                _context.Update<User>(user);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return await Get()
+                .Include(x => x.MovieReferences)
+                .SingleOrDefaultAsync(predicate);
         }
     }
 }
