@@ -40,6 +40,25 @@ namespace Application.Handler
             }
         }
 
+        public async Task<UserDTO> GetUserByIdAsync(Guid guid)
+        {
+            try
+            {
+                var user = await _uof.UserRepository.GetPredicateAsync(x => x.Id == guid);
+
+                if (user is not null)
+                {
+                    return _mapper.Map<UserDTO>(user);
+                }
+
+                return null;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Falha ao pegar usuário.");
+            }
+        }
+
         public async Task<UserDTO> LoginUserAsync(string email, string password)
         {
             try
@@ -69,7 +88,7 @@ namespace Application.Handler
                 {
                     if (user.MovieReferences is not null)
                     {
-                        MovieReference? movieRef = await _uof.MovieReferenceRepository.GetPredicateAsync(x => x.UserId == user.Id && x.MovieId == updateMovieListDTO.MovieId);//user.MovieReferences.FirstOrDefault(mr => mr.MovieId == updateMovieListDTO.MovieId);
+                        MovieReference? movieRef = await _uof.MovieReferenceRepository.GetPredicateAsync(x => x.UserId == user.Id && x.MovieId == updateMovieListDTO.MovieId);
 
                         if (movieRef is not null && !updateMovieListDTO.Favorite)
                         {
@@ -155,6 +174,19 @@ namespace Application.Handler
             catch (Exception ex)
             {
                 throw new Exception("Falha em pegar filme.");
+            }
+        }
+
+        public async Task<ICollection<MinimalMovieDTO>> RandomMovieById(int genrer)
+        {
+            try
+            {
+                var moviesInfo = await _movieClient.GetRandomMovieByGenrerAsync(genrer);
+                return _mapper.Map<ICollection<MinimalMovieDTO>>(moviesInfo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha em pegar filmes aleatorios.");
             }
         }
     }
