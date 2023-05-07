@@ -6,5 +6,7 @@ namespace Application.Interfaces
     {
         Task<ICollection<MovieInfo>> GetPopularMoviesAsync(int pageNumber = 1);
         Task<Movie> GetMovieByIdAsync(int id);
+
+        Task<ICollection<MovieInfo>> GetRandomMovieByGenrerAsync(int genre);
     }
 }
